@@ -1,0 +1,17 @@
+---
+## This playbook installs and configures DeepSecurity - Trendmicro
+
+- name: Install and configure DeepSecurity
+  hosts: all
+  remote_user: root
+
+  tasks:
+    - name: Create /mnt/tmp in case it doesnst exists
+      shell: /bin/bash -c "mkdir /mnt/tmp"
+      ignore_errors: yes
+      
+    - name: mount groups share
+      shell: /bin/bash -c "mount -t cifs //g-star.raw/data/install -o username=_svc_compadd,domain=G-STAR.RAW,password=R@wadd00 /mnt/tmp"
+      
+    - name: copy the rpm file to /tmp
+      shell: /bin/bash -c "cp /mnt/tmp/ /tmp"
