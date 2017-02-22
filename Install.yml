@@ -3,7 +3,6 @@
 
 - name: Install and configure DeepSecurity
   hosts: all
-  remote_user: root
 
   tasks:
     - name: Create /mnt/tmp in case it doesnst exists
